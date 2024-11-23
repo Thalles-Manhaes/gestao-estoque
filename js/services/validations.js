@@ -12,6 +12,25 @@
             console.log("email valido")
         }
     }
+    isValidPassword = (password) =>{
+        password = fieldPassword.value
+            const regexUppercase = /[A-Z]/
+            const regexSpecialChar = /[!@#$%^&*(),.?":{}|<>]/;
+            const regexNumbers = /\d/;
+            
+            const hasUppercase = regexUppercase.test(password)
+            const hasSpecialChar = regexSpecialChar.test(password)
+            const hasNumbers = regexNumbers.test(password)
+            const hasMinLength = password.length >= 8
+            
+            if(!hasUppercase && !hasSpecialChar && !hasNumbers){
+                console.log('senha incorreta')
+                return false
+            }else{
+                console.log('senha correta', password)
+                return true
+            }
+    }
     const validForm = () => {
         const formLogin = document.querySelector('#form-login')
         formLogin.addEventListener('submit', (e)=> {
@@ -25,9 +44,9 @@
   
     const clickedInBtnLogin = () => {
         const btnEnterLogin = document.querySelector('#btn-enter-login')
-        console.log(btnEnterLogin)
         btnEnterLogin.addEventListener('click', ()=>{
             isValidEmail()
+            isValidPassword()
             validForm()
             clearFormLogin()
         })
