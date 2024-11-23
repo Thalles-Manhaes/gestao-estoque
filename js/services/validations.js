@@ -39,7 +39,8 @@
     }
 
     const clearFormLogin = () => {
-        fieldEmail.value = ''
+        fieldEmail.value    = ''
+        fieldPassword.value = ''
     }
   
     const clickedInBtnLogin = () => {
