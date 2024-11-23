@@ -1,27 +1,37 @@
 (()=> {
-    const validation = ()=> {
-
-        return {
-            isEmpty: (value) => {
-                console.log(value, 'campo está vazio!')
-                return value === '' || value.length === 0
-            },
-            isEmailValid: (email) => {
-                const checkEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                return !checkEmail.test(email);
-            },
-            isPasswordValid: (password) => {
-
-                //tem que conter 1 letra maiuscula
-                //tem que conter pelo menos uma caracter especial 
-                //tem que conter no minimo 5 numeros
-                if(password.toUpperCase()){
-
-                }else{
-                    console.log('letra minuscula!')
-                }
-            }
+    const fieldEmail = document.querySelector('#email')
+     const fieldPassword = document.querySelector('#password')
+     
+    isValidEmail = (email) =>{
+        email = fieldEmail.value
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+        const emailValid = emailRegex.test(email)
+        if(!emailValid){
+            console.log('email invalido')
+        }else{
+            console.log("email valido")
         }
     }
-    validation()
+    const validForm = () => {
+        const formLogin = document.querySelector('#form-login')
+        formLogin.addEventListener('submit', (e)=> {
+            e.preventDefault()
+        })
+    }
+
+    const clearFormLogin = () => {
+        fieldEmail.value = ''
+    }
+  
+    const clickedInBtnLogin = () => {
+        const btnEnterLogin = document.querySelector('#btn-enter-login')
+        console.log(btnEnterLogin)
+        btnEnterLogin.addEventListener('click', ()=>{
+            isValidEmail()
+            validForm()
+            clearFormLogin()
+        })
+    }
+    clickedInBtnLogin()
+
 })()
