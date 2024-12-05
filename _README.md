@@ -118,3 +118,57 @@ Regras de Negócio:
  - Segurança:
  - Implementação de criptografia para senhas.
  - Acesso via autenticação segura (JWT ou sessões).
+
+
+ tela de cadastro de produto ir pro modal 
+
+pagina de edição de produto - criar
+
+passar de 5 campos te mque ser pagina/tela e nao modal
+
+
+tela de entrada de estoque automatico e outra tela manual
+
+tela para cadastrar editar fornecedor
+
+
+
+
+## produtos
+/produtos
+/produto/criar
+/produto/editar/:id
+/produto/categorias/
+
+
+
+## categoria de produtos
+/categorias
+/categoria/criar
+/categoria/editar/:id
+
+## fornecedores
+/fornecedores
+/fornecedor/criar
+/fornecedor/editar/:id
+
+## entrada de estoque
+/estoque
+/estoque/entrada/nota
+/estoque/entrada/manual
+/estoque/editar/:id
+
+## usuarios do sistema
+/usuarios
+/usuario/criar
+/usuario/editar/:id
+
+## sistema
+/login
+/recuperar_senha
+/acesso_negado
+/logs
+
+## dashboard
+/dashboard
+
