@@ -135,7 +135,7 @@ tela para cadastrar editar fornecedor
 
 
 ## produtos
-/produtos
+Dashboard/produtos
 /produto/criar
 /produto/editar/:id
 /produto/categorias/
@@ -143,23 +143,23 @@ tela para cadastrar editar fornecedor
 
 
 ## categoria de produtos
-/categorias
+Dashboard/categorias
 /categoria/criar
 /categoria/editar/:id
 
 ## fornecedores
-/fornecedores
+Dashboard/fornecedores
 /fornecedor/criar
 /fornecedor/editar/:id
 
 ## entrada de estoque
-/estoque
+Dashboard/estoque
 /estoque/entrada/nota
 /estoque/entrada/manual
 /estoque/editar/:id
 
 ## usuarios do sistema
-/usuarios
+Dashboard/usuarios
 /usuario/criar
 /usuario/editar/:id
 

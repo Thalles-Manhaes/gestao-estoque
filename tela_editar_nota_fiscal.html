@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Nota Fiscal Eletrônica (NFE)</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="d-flex align-items-center justify-content-center vh-100" data-bs-theme="dark">
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Editar Nota Fiscal Eletrônica (NFE)</h1>
+
+        <!-- Formulário de Edição de NFE -->
+        <form id="editNfeForm" class="border p-4 rounded shadow-sm bg-dark">
+            <h4 class="mb-4">Alterar Dados da NFE</h4>
+
+            <!-- Número da NFE -->
+            <div class="mb-3">
+                <label for="editNfeNumber" class="form-label">Número da NFE *</label>
+                <input type="text" class="form-control" id="editNfeNumber" placeholder="Digite o número da NFE" required>
+            </div>
+
+            <!-- Data de Emissão -->
+            <div class="mb-3">
+                <label for="editIssueDate" class="form-label">Data de Emissão *</label>
+                <input type="date" class="form-control" id="editIssueDate" required>
+            </div>
+
+            <!-- Fornecedor -->
+            <div class="mb-3">
+                <label for="editSupplier" class="form-label">Fornecedor *</label>
+                <input type="text" class="form-control" id="editSupplier" placeholder="Digite o nome do fornecedor" required>
+            </div>
+
+            <!-- Produtos Contidos na NFE -->
+            <div class="mb-3">
+                <label for="editProducts" class="form-label">Produtos Contidos na NFE *</label>
+                <div id="editProductsList">
+                    <!-- Produto Exemplo -->
+                    <div class="row mb-2">
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" placeholder="Nome do Produto" required>
+                        </div>
+                        <div class="col-md-2">
+                            <input type="number" class="form-control" placeholder="Qtd" required>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="number" class="form-control" placeholder="Valor Unitário" step="0.01" required>
+                        </div>
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-danger w-100 remove-product">Remover</button>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" id="addEditProduct" class="btn btn-success">Adicionar Produto</button>
+            </div>
+
+            <!-- Valor Total -->
+            <div class="mb-3">
+                <label for="editTotalValue" class="form-label">Valor Total</label>
+                <input type="text" class="form-control" id="editTotalValue" placeholder="Calculado automaticamente" readonly>
+            </div>
+
+            <!-- Botões -->
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-success">Salvar Alterações</button>
+                <button type="button" class="btn btn-secondary" onclick="window.history.back()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

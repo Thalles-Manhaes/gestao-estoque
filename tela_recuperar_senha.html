@@ -1,83 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criação de Conta e Recuperação de Senha</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recuperação de Senha</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="d-flex align-items-center justify-content-center vh-100" data-bs-theme="dark">
-    <div class="container my-5" style="width: 100%; max-width: 800px;">
-        <!-- Tabs de navegação -->
-        <ul class="nav nav-tabs" id="authTabs" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="create-account-tab" data-bs-toggle="tab" data-bs-target="#create-account" type="button" role="tab" aria-controls="create-account" aria-selected="true">
-                    Criar Conta
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="recover-password-tab" data-bs-toggle="tab" data-bs-target="#recover-password" type="button" role="tab" aria-controls="recover-password" aria-selected="false">
-                    Recuperar Senha
-                </button>
-            </li>
-        </ul>
-
-        <!-- Conteúdo das abas -->
-        <div class="tab-content mt-4" id="authTabsContent">
-            <!-- Criar Conta -->
-            <div class="tab-pane fade show active" id="create-account" role="tabpanel" aria-labelledby="create-account-tab">
-                <h3>Criar Conta</h3>
-                <form>
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Nome Completo</label>
-                        <input type="text" class="form-control" id="name" placeholder="Digite seu nome completo" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">E-mail</label>
-                        <input type="email" class="form-control" id="email" placeholder="Digite seu e-mail" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Senha</label>
-                        <input type="password" class="form-control" id="password" placeholder="Digite sua senha" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="confirm-password" class="form-label">Confirmar Senha</label>
-                        <input type="password" class="form-control" id="confirm-password" placeholder="Confirme sua senha" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Criar Conta</button>
-                </form>
-            </div>
-
-            <!-- Recuperar Senha -->
-            <div class="tab-pane fade" id="recover-password" role="tabpanel" aria-labelledby="recover-password-tab">
-                <h3>Recuperar Senha</h3>
-                <form>
-                    <div class="mb-3">
-                        <label for="recovery-email" class="form-label">E-mail</label>
-                        <input type="email" class="form-control" id="recovery-email" placeholder="Digite o e-mail cadastrado" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Enviar Link de Recuperação</button>
-                </form>
-            </div>
+<body data-bs-theme="dark">
+  <div class="container d-flex justify-content-center align-items-center vh-100" >
+    <div class="card p-4 shadow" style="width: 100%; max-width: 400px;">
+      <h4 class="card-title text-center mb-4">Recuperar Senha</h4>
+      <form>
+        <div class="mb-3">
+          <label for="email" class="form-label">E-mail cadastrado</label>
+          <input type="email" class="form-control" id="email" placeholder="Digite seu e-mail" required>
         </div>
+        <button type="submit" class="btn btn-primary w-100">Enviar link de recuperação</button>
+        <div class="text-center mt-3">
+          <a href="login.html" class="text-decoration-none">Voltar para o login</a>
+        </div>
+      </form>
     </div>
+  </div>
 
-    <!--Toast-->
-    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-        <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header">
-            <img src="..." class="rounded me-2" alt="...">
-            <strong class="me-auto">Bootstrap</strong>
-            <small>11 mins ago</small>
-            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-        <div class="toast-body">
-            Hello, world! This is a toast message.
-        </div>
-        </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/js/services/notifications.js"></script>
-    <script src="js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
