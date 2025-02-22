@@ -1,81 +1,149 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Grupo de Produtos</title>
-    <!-- Bootstrap CSS -->
+    <title>Gestão de Categorias</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212; /* Fundo escuro */
+            color: #ffffff; /* Texto branco */
+        }
+
+        /* Estiliza o accordion */
+        .accordion-button {
+            background-color: #1f1f1f !important;
+            color: #ffffff;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: #292929 !important;
+            color: #ffffff;
+        }
+
+        .modal-content {
+            background-color: #1e1e1e;
+            color: #ffffff;
+        }
+
+        .list-group-item {
+            background-color: #1e1e1e;
+            color: #ffffff;
+        }
+
+        /* Estiliza inputs, selects e checkbox */
+        .form-control, .form-check-input {
+            background-color: #292929;
+            color: #ffffff;
+            border: 1px solid #444;
+        }
+
+        .form-control::placeholder {
+            color: #bbbbbb;
+        }
+
+        /* Ajusta os botões dentro do accordion */
+        .accordion-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .accordion-header .btn-group {
+            margin-left: auto;
+        }
+
+        .btn-warning {
+            color: #000;
+        }
+
+        .btn-close {
+            filter: invert(1); /* Deixa o botão de fechar branco */
+        }
+    </style>
 </head>
-<body data-bs-theme="dark">
+<body>
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-8">
-                <div class="row">
-                    <div class="col-auto me-auto">
-                        <h4>Categorias</h4>
-                    </div>
-                    <div class="col-auto">
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCategory">Cadastrar Categoria</button>
-                    </div>
+<div class="container mt-4">
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#categoryModal">Adicionar Categoria</button>
 
+    <div class="accordion mt-4" id="categoryAccordion">
+        <!-- Categoria Principal -->
+        <div class="accordion-item border-0">
+            <h2 class="accordion-header">
+                <div class="d-flex align-items-center w-100">
+                    <button class="accordion-button flex-grow-1" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAlimentos">
+                        Alimentos
+                    </button>
+                    <div class="btn-group">
+                        <button class="btn btn-warning btn-sm mx-1">Editar</button>
+                        <button class="btn btn-danger btn-sm">Excluir</button>
+                    </div> 
                 </div>
-        <table class="table table-bordered table-hover mt-3">
-            <thead class="table-dark">
-                <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th width="200">Ações</th>
-                </tr>
-            </thead>
-            <tbody id="groupTable">
-                <!-- Exemplo de Grupo -->
-                <tr>
-                    <td>1</td>
-                    <td>Bebidas</td>
-                    <td>
-                        <button class="btn btn-warning btn-sm">Editar</button>
-                        <button class="btn btn-danger  btn-sm">Excluir</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+            </h2>
+            <div id="collapseAlimentos" class="accordion-collapse collapse show">
+                <div class="accordion-body">
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>Pratos</span>
+                            <div>
+                                <button class="btn btn-warning btn-sm mx-1">Editar</button>
+                                <button class="btn btn-danger btn-sm">Excluir</button>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>Porçoes</span>
+                            <div>
+                                <button class="btn btn-warning btn-sm mx-1">Editar</button>
+                                <button class="btn btn-danger btn-sm">Excluir</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Outras categorias principais podem ser adicionadas aqui -->
+    </div>
+</div>
+
+<!-- Modal para adicionar categoria -->
+<div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="categoryModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="categoryModalLabel">Adicionar Categoria</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="categoryName" class="form-label">Nome da Categoria</label>
+                        <input type="text" class="form-control" id="categoryName" placeholder="Digite o nome">
+                    </div>
+                    <div class="mb-3" id="formControlcategoryParent">
+                        <label for="categoryParent" class="form-label">Categoria Pai</label>
+                        <select class="form-control" id="categoryParent">
+                            <option value="">Nenhuma (Será categoria principal)</option>
+                            <option value="Alimentos">Alimentos</option>
+                            <option value="Bebidas">Bebidas</option>
+                        </select>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="checkCategoryPrincipal">
+                        <label class="form-check-label" for="checkCategoryPrincipal">Categoria Principal</label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary">Salvar Categoria</button>
             </div>
         </div>
     </div>
-
-    <div class="modal fade" id="modalCategory" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastro de Categorias de Produtos</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <!-- Formulário de Cadastro -->
-                <form id="groupForm" class="border p-4 rounded shadow-sm bg-dark">
-                
-                    <div class="mb-3">
-                        <label for="groupName" class="form-label">Nome Categoria*</label>
-                        <input type="text" class="form-control" id="groupName" placeholder="Digite o nome do grupo" required>
-                        <input type="checkbox" class="mt-2" name="" id="">
-                        <label for="">Categoria principal</label>
-                    </div>
-                    
-                </form>
-            </div>
-    
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-              <button type="button" class="btn btn-primary">Salvar</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.47.12/dist/umd/supabase.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/js/services/notifications.js"></script>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/category.js"></script>
 </body>
 </html>
