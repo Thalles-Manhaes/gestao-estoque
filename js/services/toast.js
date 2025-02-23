@@ -53,13 +53,14 @@ function toastNotification(type, message, placement = 'top-right') {
 
 
 
-  dFlex.append(toastBody)
-  dFlex.append(buttonToast)
+  dFlex.append(toastBody, buttonToast)
+
 
   toast.append(dFlex)
   toastContainer.append(toast)
   document.body.append(toastContainer)
-  const toastEvent = new bootstrap.Toast(toastContainer)
+  
+  const toastEvent = new bootstrap.Toast(toast)
   toastEvent.show()
 
 }
